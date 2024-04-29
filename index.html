@@ -1,0 +1,333 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>reveal.js</title>
+
+		<link rel="stylesheet" href="dist/reset.css">
+		<link rel="stylesheet" href="dist/reveal.css">
+		<link rel="stylesheet" href="dist/theme/night.css">
+
+		<!-- Theme used for syntax highlighted code -->
+		<link rel="stylesheet" href="plugin/highlight/monokai.css">
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<section data-background="./assets/web-accessibility.webp">
+					<!-- <img src="./img/web-accessibility.webp" alt="Web accessibility image"> -->
+				</section>
+				<section>
+					<h2>Web Accessibility Standards and Best Practices</h2>
+				</section>
+				<section>
+					<section>
+						<h3>Key Principles of Accessibility</h3>
+						<p>The standards for web accessibility are based on the Web Content Accessibility Guidelines (WCAG) developed by the World Wide Web Consortium (W3C).</p>
+						<p>These guidelines are based on four key principles, often summarized as POUR, each crucial for creating a universally accessible web.</p>
+					</section>
+					<section>
+						<img src="./assets/WCAG-PourDiagram.png" alt="POUR Diagram">
+					</section>
+				</section>
+				<section>
+					<section>
+						<p>What Are WCAG 2.0 Accessibility Standards?</p>
+						<img src="./assets/accessibility-icons.png" alt="accessibility icons">
+					</section>
+					<section>
+						<p>The goal of the WCAG 2.0 is to provide guidelines for web developers to create websites and digital content that are more accessible to users with disabilities, improving the user experience for everyone.</p>
+					</section>
+					<section>
+						<p>Besides the four main principles that we have already discussed, WCAG 2.0 standards also include three levels of conformance: Level A, Level AA, and Level AAA. Each level includes specific success criteria that must be met to conform to that level, with Level A being the most basic conformance.</p>
+					</section>
+					<section>
+						<img src="./assets/Conformance-Levels-768x690.webp" alt="conformance levels">
+					</section>
+				</section>
+				<section>
+					<h2>Best Practices for Web Accessibility</h2>
+				</section>
+				<section>
+					<section>
+						<h3>Use Semantic HTML</h3>
+						<p>
+							Semantic HTML involves using HTML elements according to their intended purpose rather than just for presentation. It's about structuring your website with elements that describe their meaning and role in the document structure.<br>
+							This practice is crucial for assistive technologies, like screen readers, which rely on this structure to interpret and navigate content.
+						</p>
+					</section>
+					<section>
+						<img src="./assets/semantichtml.png" width="350" height="510" alt="Picture with an example of the absence of semantic tags">
+						<img src="./assets/semantichtml-2.png" width="350" height="510" alt="Picture with an example of using semantic tags">
+					</section>
+					<section>
+						<h4>How to implement semantic HTML</h4>
+						<pre><code>
+							<header>
+								<!-- Site logo, header content -->
+							</header>
+							<nav>
+								<!-- Navigation links -->
+							</nav>
+							<main>
+								<!-- Main content -->
+							</main>
+							<footer>
+								<!-- Footer content -->
+							</footer>
+						</code></pre>
+					</section>
+					<section>
+						<ul>
+							<h4>Why semantic HTML is useful:</h4>
+							<li><b>Accessibility:</b> Screen readers can easily navigate and interpret the content. For example, a user can skip directly to the main content or easily find the navigation menu.</li>
+							<li><b>SEO benefits:</b> Search engines favor well-structured content. Semantic elements make it easier for search engine bots to understand the content of a webpage, potentially improving search rankings.</li>
+							<li><b>Maintainability:</b> Semantic HTML leads to cleaner, more readable code, making it easier for developers to understand and maintain.</li>
+						</ul>
+					</section>
+				</section>
+				<section>
+					<section>
+						<h3>Use Sufficient Contrast</h3>
+						<p> Ensuring sufficient contrast is vital for readability, especially for users with visual impairments like color blindness or low vision. High contrast between text and background makes it easier for these users to read and understand content.</p>
+					</section>
+					<section>
+						<img width="630" height="400" src="./assets/contrasts.webp" alt="Examples of contasts">
+					</section>
+					<section>
+						<h3>How to implement good contrast</h3>
+						<p>To improve contrast, you could change the text color to a much darker shade, like black or dark gray.</p>
+						<pre><code>
+							/* Low contrast example */
+							.low-contrast-text {
+								color: #757575; /* Light gray */
+								background-color: #fff; /* White */
+							}
+
+							/* Improved contrast */
+							.high-contrast-text {
+								color: #000; /* Black */
+								background-color: #fff; /* White */
+							}
+						</code></pre>
+					</section>
+					<section>
+						<img src="./assets/meme-contasts.jpg" alt="Contrast meme image">
+					</section>
+					<section>
+						<ul>
+							<h3>Why contrast is useful:</h3>
+							<li><b>Enhanced readability:</b> High contrast makes the text legible to users with visual impairments and those reading under challenging lighting conditions.</li>
+							<li><b>Inclusivity:</b> It caters to a wider audience, including users with deteriorating vision and those with temporary or situational impairments.</li>
+							<li><b>Legal compliance:</b> Many regions have regulations requiring accessible web content, and sufficient contrast is a common requirement.</li>
+						</ul>
+					</section>
+				</section>
+				<section>
+					<section>
+						<h3>Make All Functionality Keyboard Accessible</h3>
+						<p>Ensuring that all functionalities on a website are accessible via keyboard is essential for users who cannot use a mouse due to physical disabilities, temporary injuries, or personal preference. This includes navigating menus, activating buttons and links, filling out forms, and using interactive widgets.</p>
+					</section>
+					<section>
+						<h3>How to make content keyboard accessible</h3>
+						<p>Consider a dropdown menu on a website. Typically, users hover over the menu with a mouse to view the options.<br>
+							To make this keyboard-accessible, you need to ensure that users can navigate to the menu using the Tab key and expand the menu using the Enter or Space key.</p>
+					</section>
+					<section>
+						<pre><code data-trim>
+							<ul>
+								<li tabindex="0">Menu Item 1
+								  <ul class="dropdown-content">
+									<li tabindex="0">Sub Item 1</li>
+									<li tabindex="0">Sub Item 2</li>
+								  </ul>
+								</li>
+								<li tabindex="0">Menu Item 2</li>
+							</ul>
+						</code></pre>
+						<pre><code data-trim>
+							document.querySelectorAll('li[tabindex="0"]').forEach(item => {
+								item.addEventListener('keypress', function(e) {
+								  if (e.key === 'Enter' || e.key === ' ') {
+									// Code to toggle dropdown
+								  }
+								});
+							});
+						</code></pre>
+					</section>
+					<section>
+						<ul>
+							<h4>Why keyboard navigation is useful:</h4>
+							<li><b>Accessibility for all:</b> Keyboard accessibility ensures that users with motor disabilities or those who prefer keyboard navigation can use the website effectively.</li>
+							<li><b>Enhanced usability:</b> Keyboard shortcuts can speed up navigation, offering an enhanced experience even for users who can use a mouse.</li>
+							<li><b>Compliance with accessibility standards:</b> Adhering to standards like WCAG and ADA (Americans with Disabilities Act) often requires keyboard accessibility.</li>
+						</ul>
+					</section>
+				</section>
+				<section>
+					<section>
+						<h3>Provide Alt Text for Images</h3>
+						<p>Alt text (alternative text) is a concise description of an image's content and function. It's crucial for visually impaired users who rely on screen readers to understand image content. Alt text ensures that even if users can't see the images on a web page, their purpose and message can still be conveyed.</p>
+					</section>
+					<section>
+						<h3>How to add alt text to images</h3>
+						<p>Suppose your website has an image of a company logo. The alt text should describe the logo, not just state "logo". For instance, alt="Application Logo".</p>
+						<pre><code data-trim>
+							<img src="application-logo.png" alt="Application Logo">
+						</code></pre>
+					</section>
+					<section>
+						<ul>
+							<h4>Why alt text is useful:</h4>
+							<li><b>Accessibility Compliance:</b> Providing alt text is a fundamental aspect of web accessibility, required under WCAG guidelines.</li>
+							<li><b>SEO Benefits:</b> Alt text improves SEO by providing better image context/descriptions, helping search engines index an image properly.</li>
+							<li><b>Fallback Content:</b> If an image fails to load, the alt text will be displayed, helping all users understand what was supposed to be there.</li>
+						</ul>
+					</section>
+				</section>
+				<section>
+					<section>
+						<h3>Use ARIA (Accessible Rich Internet Applications) Roles When Necessary</h3>
+						<p>ARIA roles and attributes enhance the accessibility of web content, particularly for dynamic content and advanced user interface controls developed with Ajax, HTML, JavaScript, and related technologies. ARIA helps make web content and web applications more accessible to people with disabilities, especially when HTML can't accomplish it alone.</p>
+					</section>
+					<section>
+						<h3>How to implement ARIA roles and attributes</h3>
+						<p>
+							Consider a web application with a dynamic content update section, such as a live news feed. Standard HTML alone may not be able to convey the dynamic nature of this content to screen readers.
+							By using ARIA roles, you can make it clear to assistive technologies that this section of the page is a live region and its updates are important. For instance:
+						</p>
+					</section>
+					<section>
+					<p>In this example, aria-live="polite" indicates that updates to this region should be announced by screen readers, but not interrupt the current task, while aria-atomic="true" ensures that the entire region is read as a whole, not just the updated part.</p>
+			<pre><code>
+			<div aria-live="polite" aria-atomic="true">
+				<!-- Dynamic content here, like live news updates -->
+			</div>
+			</code></pre>
+					</section>
+					<section>
+						<ul>
+							<h4>Why ARIA is useful:</h4>
+							<li><b>Enhanced screen reader experience:</b> ARIA roles provide screen reader users with a more comprehensive understanding of what's happening on the page, particularly for dynamic and complex content.</li>
+							<li><b>Greater interactivity:</b> ARIA can make web applications more interactive and usable for people with disabilities, facilitating operations that standard HTML can't handle.</li>
+							<li><b>Custom widget accessibility:</b> For custom widgets that lack semantic HTML equivalents, ARIA roles can define the widget's function, making it accessible.</li>
+						</ul>
+					</section>
+				</section>
+				<section>
+					<section>
+						<h3>Ensure Forms are Accessible</h3>
+						<p>Accessible forms are vital for users with disabilities to interact with a site, input data, and utilize services. Ensuring that form elements are accessible means they can be easily navigated, understood, and filled out by everyone, including those using screen readers or keyboard navigation.</p>
+					</section>
+					<section>
+						<h3>How to make forms accessible</h3>
+						<p>Imagine a simple contact form with fields for name, email, and a message. For each form element, use a <label> tag to provide a clear description. Ensure that each <label> is associated with its respective form control using the for attribute, which matches the id of the input element. This is crucial for screen reader users to understand what each field represents.</p>
+					</section>
+					<section>
+					<pre><code>
+					<form>
+						<label for="name">Name:</label>
+						<input type="text" id="name" name="name">
+						
+						<label for="email">Email:</label>
+						<input type="email" id="email" name="email">
+						
+						<label for="message">Message:</label>
+						<textarea id="message" name="message"></textarea>
+						
+						<button type="submit">Submit</button>
+					</form>
+					</code></pre>
+					</section>
+					<section>
+						<img src="./assets/accessible-forms.jpg" alt="accessible forms">
+					</section>
+					<section>
+						<ul>
+							<h4>Why accessible forms are useful:</h4>
+							<li><b>Clarity and context:</b> Labels provide context to users, especially those using screen readers, about what type of information is expected in each field.</li>
+							<li><b>Error handling:</b> Accessible forms should also handle errors clearly, informing users about what went wrong and how to fix it. This can include real-time validation feedback and error messages that are announced by screen readers.</li>
+							<li><b>Keyboard navigation:</b> All form controls should be navigable using the keyboard, allowing users who can't use a mouse to interact fully with the form.</li>
+						</ul>
+					</section>
+				</section>
+				<section>
+					<section>
+						<h3>Caption and Transcribe Audio and Video</h3>
+						<p>Providing captions for video content and transcriptions for audio is crucial for accessibility. Captions and transcriptions ensure that deaf or hard-of-hearing users, as well as those who prefer reading to listening, can access audio and video content.</p>
+					</section>
+					<section>
+						<h3>How to make audio and video content accessible</h3>
+						<p>For a video on your website, include closed captioning that accurately reflects the spoken content and other auditory cues. You can use HTML5's <track> element to specify caption files. Similarly, for audio content like podcasts or interviews, provide a text transcription.</p>
+					</section>
+					<section>
+						<p>In this example, a WebVTT (.vtt) file is used for captions. Ensure the captions are synchronized with the audio and include descriptions of relevant non-speech audio.</p>
+						<pre><code data-trim>
+						<video controls>
+							<source src="video.mp4" type="video/mp4">
+							<track src="captions_en.vtt" kind="captions" srclang="en" label="English">
+						</video>
+						</code></pre>
+					</section>
+					<section>
+						<ul>
+							<h4>Why captions and transcriptions are useful</h4>
+							<li><b>Accessibility for hearing impaired:</b> Captions and transcriptions are essential for users who are deaf or hard of hearing, enabling them to access content that would otherwise be inaccessible.</li>
+							<li><b>Enhanced comprehension:</b> They also benefit users who are not fluent in the language of the video or have difficulty understanding the speech.</li>
+							<li><b>Flexible viewing:</b> Captions allow content to be consumed in sound-sensitive environments, like workplaces or libraries.</li>
+						</ul>
+					</section>
+				</section>
+				<section>
+					<section>
+						<h3>Design Consistent, Predictable Navigation</h3>
+						<p>Designing a website with consistent and predictable navigation is key to accessibility. It allows users, especially those with cognitive disabilities, to learn the navigation pattern quickly, enhancing their ability to find information and navigate your site effectively.</p>
+					</section>
+					<section>
+						<h3>How to design effective navigation</h3>
+						<p>Consider a website with a top navigation menu. The menu items should be in a logical order and remain consistent across all pages. Avoid changing the order of menu items or their location on different pages.</p>
+					</section>
+					<section>
+						<p>In this example, the navigation structure is simple and straightforward. It's important to maintain this structure and order consistently throughout the website.</p>
+				<pre><code>
+					<nav>
+						<ul>
+							<li><a href="/">Home</a></li>
+							<li><a href="/about">About Us</a></li>
+							<li><a href="/services">Services</a></li>
+							<li><a href="/contact">Contact</a></li>
+						</ul>
+					</nav>
+				</code></pre>
+					</section>
+					<section>
+						<ul>
+							<h4>Why good navigation is useful:</h4>
+							<li><b>Ease of use:</b> A consistent navigation structure helps users understand and remember how to interact with your website, reducing confusion and frustration.</li>
+							<li><b>Improved orientation:</b> Users can better orient themselves and understand their current location within the website.</li>
+							<li><b>Support for assistive technologies:</b> Consistent navigation is easier for screen readers and other assistive technologies to interpret, providing a smoother browsing experience for users relying on these tools.</li>
+						</ul>
+					</section>
+				</section>
+			</div>
+		</div>
+
+		<script src="dist/reveal.js"></script>
+		<script src="plugin/notes/notes.js"></script>
+		<script src="plugin/markdown/markdown.js"></script>
+		<script src="plugin/highlight/highlight.js"></script>
+		<script>
+			// More info about initialization & config:
+			// - https://revealjs.com/initialization/
+			// - https://revealjs.com/config/
+			Reveal.initialize({
+				hash: true,
+
+				// Learn about plugins: https://revealjs.com/plugins/
+				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
+			});
+		</script>
+	</body>
+</html>
